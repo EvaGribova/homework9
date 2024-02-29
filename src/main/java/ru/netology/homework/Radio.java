@@ -2,8 +2,8 @@
 package ru.netology.homework;
 
 public class Radio {
-    public int stationNumber;
-    public int volume;
+    private int stationNumber;
+    private int volume;
 
     public int getStationNumber() {
         return stationNumber;
