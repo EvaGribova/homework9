@@ -12,10 +12,6 @@ public class Radio {
     public void setStationNumber(int newStationNumber) {
         if ((newStationNumber <= 9)&&(newStationNumber >= 0)) {
             stationNumber = newStationNumber;
-        } else if (newStationNumber > 9) {
-            return;
-        } else if (newStationNumber < 0) {
-            newStationNumber = 9;
         }
     }
 
@@ -35,19 +31,14 @@ public class Radio {
         }
     }
 
-    public int getVolume () {
+    public int getVolume() {
         return volume;
     }
 
     public void setVolume(int newVolume) {
-        if ((newVolume <= 100)&&(newVolume >= 0)) {
-            this.volume = newVolume;
-        } else if (newVolume >= 100) {
-            newVolume = 100;
-        } else if (newVolume <= 0) {
-            return;
+        if ( newVolume <= 100 && newVolume >= 0 ) {
+            volume = newVolume;
         }
-        volume = newVolume;
     }
 
     public void setLouderVolume() {
