@@ -9,25 +9,25 @@ public class Radio {
     private int minVolume = 0;
     private int volume = minVolume;
 
+    public Radio(int size) {
+        this.maxStationNumber = minStationNumber + size - 1;
+    }
+
+    public Radio() {
+    }
+
     public int getStationNumber() {
 
         return stationNumber;
-    }
-
-    public int getMaxStationNumber() {
-
-        return maxStationNumber;
     }
 
     public int getMinStationNumber() {
         return minStationNumber;
     }
 
-    public Radio(int size) {
-        this.maxStationNumber = minStationNumber + size - 1;
-    }
+    public int getMaxStationNumber() {
 
-    public Radio() {
+        return maxStationNumber;
     }
 
     public void setStationNumber(int newStationNumber) {
