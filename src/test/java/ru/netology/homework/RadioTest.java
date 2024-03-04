@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio radio = new Radio();
 
     @Test
     public void shouldSetStationNumberOnMinBorder() {
-        Radio radio = new Radio();
 
         radio.setStationNumber(0);
 
@@ -19,7 +19,6 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetStationNumberUnderMax() {
-        Radio radio = new Radio();
 
         radio.setStationNumber(10);
 
@@ -31,7 +30,6 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetStationNumberUnderMin() {
-        Radio radio = new Radio();
 
         radio.setStationNumber(-1);
 
@@ -43,7 +41,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangeOnNextStationNumberOnMaxBorder() {
-        Radio radio = new Radio();
 
         radio.setStationNumber(9);
         radio.nextStationNumber();
@@ -56,7 +53,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangeOnNextStationNumber() {
-        Radio radio = new Radio();
 
         radio.setStationNumber(8);
         radio.nextStationNumber();
@@ -69,7 +65,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangeOnPrevStationNumberOnMinBorder() {
-        Radio radio = new Radio();
 
         radio.setStationNumber(0);
         radio.prevStationNumber();
@@ -82,7 +77,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangeOnPrevStationNumberBeforeMinBorder() {
-        Radio radio = new Radio();
 
         radio.setStationNumber(1);
         radio.prevStationNumber();
@@ -95,7 +89,6 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeOnMaxBorder() {
-        Radio radio = new Radio();
 
         radio.setVolume(100);
 
@@ -107,7 +100,6 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetVolumeAfterMaxBorder() {
-        Radio radio = new Radio();
 
         radio.setVolume(101);
 
@@ -119,7 +111,6 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetVolumeAfterMinBorder() {
-        Radio radio = new Radio();
 
         radio.setVolume(-1);
 
@@ -131,7 +122,6 @@ public class RadioTest {
 
     @Test
     public void shouldLouderVolumeOnMinBorder() {
-        Radio radio = new Radio();
 
         radio.setVolume(0);
         radio.setLouderVolume();
@@ -144,7 +134,6 @@ public class RadioTest {
 
     @Test
     public void shouldLouderVolumeOnMaxBorder() {
-        Radio radio = new Radio();
 
         radio.setVolume(100);
         radio.setLouderVolume();
@@ -157,7 +146,6 @@ public class RadioTest {
 
     @Test
     public void shouldQuietVolumeBeforeMinBorder() {
-        Radio radio = new Radio();
 
         radio.setVolume(1);
         radio.setQuietVolume();
@@ -167,9 +155,9 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldQuietVolumeOnMinBorder() {
-        Radio radio = new Radio();
 
         radio.setVolume(0);
         radio.setQuietVolume();
@@ -178,5 +166,14 @@ public class RadioTest {
         int actual = radio.getVolume();
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSizeStationNumber() {
+        Radio radio = new Radio(30);
+
+        Assertions.assertEquals(0, radio.getMinStationNumber());
+        Assertions.assertEquals(29, radio.getMaxStationNumber());
+        Assertions.assertEquals(0, radio.getStationNumber());
     }
 }

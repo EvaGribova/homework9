@@ -2,11 +2,32 @@
 package ru.netology.homework;
 
 public class Radio {
-    private int stationNumber;
-    private int volume;
+    private int maxStationNumber = 9;
+    private int minStationNumber = 0;
+    private int stationNumber = minStationNumber;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int volume = minVolume;
+
+    public Radio(int size) {
+        this.maxStationNumber = minStationNumber + size - 1;
+    }
+
+    public Radio() {
+    }
 
     public int getStationNumber() {
+
         return stationNumber;
+    }
+
+    public int getMinStationNumber() {
+        return minStationNumber;
+    }
+
+    public int getMaxStationNumber() {
+
+        return maxStationNumber;
     }
 
     public void setStationNumber(int newStationNumber) {
@@ -16,7 +37,7 @@ public class Radio {
     }
 
     public void nextStationNumber() {
-        if (stationNumber >= 9) {
+        if (stationNumber >= maxStationNumber) {
             stationNumber = 0;
         } else {
             stationNumber++;
@@ -24,7 +45,7 @@ public class Radio {
     }
 
     public void prevStationNumber() {
-        if (stationNumber <= 0) {
+        if (stationNumber <= minStationNumber) {
             stationNumber = 9;
         } else {
             stationNumber--;
@@ -32,7 +53,16 @@ public class Radio {
     }
 
     public int getVolume() {
+
         return volume;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
     }
 
     public void setVolume(int newVolume) {
@@ -42,13 +72,13 @@ public class Radio {
     }
 
     public void setLouderVolume() {
-        if (volume < 100) {
+        if (volume < maxVolume) {
             volume++;
         }
     }
 
     public void setQuietVolume() {
-        if (volume > 0) {
+        if (volume > minVolume) {
             volume--;
         }
     }
